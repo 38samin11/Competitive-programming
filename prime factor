@@ -1,0 +1,37 @@
+#include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    long long N;
+    cin >> N;
+
+    map<long long, int> primeFactors;
+
+    while (N % 2 == 0) {
+        primeFactors[2]++;
+        N /= 2;
+    }
+
+    for (long long i = 3; i * i <= N; i += 2) {
+        while (N % i == 0) {
+            primeFactors[i]++;
+            N /= i;
+        }
+    }
+
+    if (N > 2) {
+        primeFactors[N]++;
+    }
+
+    bool first = true;
+    for (auto p : primeFactors) {
+        if (!first) cout << "*";
+        cout << "(" << p.first << "^" << p.second << ")";
+        first = false;
+    }
+
+    cout << endl;
+    return 0;
+}
+
