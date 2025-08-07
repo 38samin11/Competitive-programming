@@ -1,15 +1,17 @@
-#include<stdio.h>
+#include <iostream>
+using namespace std;
+
 int main()
 {
-    int n,i,j,h,arr[100000],min;
-    scanf("%d",&n);
-    for(i=0;i<n;i++)
+    int n, i, j, h, arr[100000];
+    cin >> n;
+    for (i = 0; i < n; i++)
     {
-        scanf("%d",&arr[i]);
+        cin >> arr[i];
     }
 
     for (i = 0; i < n - 1; i++) {
-        for ( j = 0; j < n - i - 1; j++) {
+        for (j = 0; j < n - i - 1; j++) {
             if (arr[j] > arr[j + 1]) {
                 int temp = arr[j];
                 arr[j] = arr[j + 1];
@@ -17,11 +19,11 @@ int main()
             }
         }
     }
-    for(i=0;i<n;i++)
+
+    for (i = 0; i < n; i++)
     {
-        printf("%d",arr[i]);
+        cout << arr[i];
     }
 
-
+    return 0;
 }
-
