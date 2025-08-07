@@ -1,15 +1,21 @@
-#include <stdio.h>
+#include <iostream>
+using namespace std;
+
 int main()
 {
-    int i, j, n, a, sum,T,arr[100000],min;
-    scanf("%d", &T);
+    int i, j, n, a, sum, T, arr[100000], min;
+
+    cin >> T;
     for (a = 0; a < T; a++)
     {
-        scanf("%d", &n);
+        cin >> n;
         for (i = 0; i < n; i++)
         {
-            scanf("%d", &arr[i]);
+            cin >> arr[i];
         }
+
+        min = INT32_MAX; 
+
         for (i = 0; i < n; i++)
         {
             for (j = i + 1; j < n; j++)
@@ -19,7 +25,8 @@ int main()
                     min = sum;
             }
         }
-       printf("%d\n", min);
+
+        cout << min << endl;
     }
 
     return 0;
